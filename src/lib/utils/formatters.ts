@@ -7,13 +7,6 @@ export function formatCurrency(value: number): string {
   }).format(value);
 }
 
-export function formatNumber(value: number): string {
-  return new Intl.NumberFormat("nb-NO", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(value);
-}
-
 export function formatDate(timestamp: number): string {
   return new Intl.DateTimeFormat("nb-NO", {
     year: "numeric",
