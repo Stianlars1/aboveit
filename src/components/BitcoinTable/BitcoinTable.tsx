@@ -3,6 +3,10 @@ import { useBitcoinTableDetails } from "@/components/BitcoinTable/hooks/useBitco
 import { formatCurrency, formatVolume } from "@/lib/utils/formatters";
 import styles from "./BitcoinTable.module.css";
 import { DEFAULT_TABLE_ROW_SIZE } from "@/lib/utils/constants";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+gsap.registerPlugin(useGSAP);
 
 export interface BitcoinTableProps {
   bitcoinPriceDetails: BitcoinPriceDetails[];
@@ -13,6 +17,7 @@ export const BitcoinTable = ({
   bitcoinPriceDetails,
   tableRowSize = DEFAULT_TABLE_ROW_SIZE,
 }: BitcoinTableProps) => {
+  const tableRef = useRef<HTMLTableElement>(null);
   const {
     paginatedData,
     currentPage,
@@ -20,6 +25,17 @@ export const BitcoinTable = ({
     totalPages,
     RowSizeSelector,
   } = useBitcoinTableDetails(bitcoinPriceDetails, tableRowSize);
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        tableRef.current,
+        { opacity: 0.25, y: 25 },
+        { opacity: 1, y: 0, duration: 0.65, ease: "power2.out" },
+      );
+    },
+    { scope: tableRef },
+  );
 
   if (bitcoinPriceDetails.length === 0) {
     return <h2 className={styles.emptyState}>Ingen data tilgjengelig.</h2>;
@@ -35,7 +51,7 @@ export const BitcoinTable = ({
 
   return (
     <section aria-label="Bitcoin Price Details" className={styles.heroSection}>
-      <table className={styles.bitcoinTable}>
+      <table className={styles.bitcoinTable} ref={tableRef}>
         <thead className={styles.tableHead}>
           <tr className={styles.tableRow}>
             <th className={styles.tableHeader}>Dato</th>
