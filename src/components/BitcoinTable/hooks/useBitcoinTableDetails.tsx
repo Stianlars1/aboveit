@@ -31,9 +31,10 @@ export const useBitcoinTableDetails = (
       <select
         value={tableRowSizeState}
         onChange={(e) => handleRowSizeChange(Number(e.target.value))}
+        aria-label="Velg antall rader per side"
       >
         {optionalRowSizes.map((size) => (
-          <option key={size} value={size}>
+          <option key={size} value={size} aria-label={`Vis ${size} rader`}>
             {size} rader
           </option>
         ))}

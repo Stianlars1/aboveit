@@ -2,13 +2,12 @@
 import { useBitcoinTableDetails } from "@/components/BitcoinTable/hooks/useBitcoinTableDetails";
 import { formatCurrency, formatVolume } from "@/lib/utils/formatters";
 import styles from "./BitcoinTable.module.css";
+import { DEFAULT_TABLE_ROW_SIZE } from "@/lib/utils/constants";
 
 export interface BitcoinTableProps {
   bitcoinPriceDetails: BitcoinPriceDetails[];
   tableRowSize?: number;
 }
-
-export const DEFAULT_TABLE_ROW_SIZE = 20;
 
 export const BitcoinTable = ({
   bitcoinPriceDetails,
@@ -23,7 +22,7 @@ export const BitcoinTable = ({
   } = useBitcoinTableDetails(bitcoinPriceDetails, tableRowSize);
 
   if (bitcoinPriceDetails.length === 0) {
-    return <h2>Ingen data tilgjengelig.</h2>;
+    return <h2 className={styles.emptyState}>Ingen data tilgjengelig.</h2>;
   }
 
   const handleNextClick = () => {
