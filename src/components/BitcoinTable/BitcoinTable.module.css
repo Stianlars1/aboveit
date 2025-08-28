@@ -1,0 +1,218 @@
+.bitcoinTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  background: hsl(var(--card));
+  margin-bottom: 50px;
+  position: relative;
+
+  box-shadow: 0 0 0 1px hsl(var(--border));
+  border-radius: 16px;
+  overflow: clip;
+
+  .tableHead {
+    padding: 40px;
+    border-radius: 8px;
+
+    .tableRow {
+      .tableHeader {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 16px 12px;
+
+        text-align: left;
+        font-weight: 600;
+        font-size: 14px;
+
+        background: hsl(var(--card) / 0.2);
+        backdrop-filter: blur(13px);
+        color: hsl(var(--foreground));
+
+        border-bottom: 1px solid hsl(var(--border));
+        border-right: 1px solid hsl(var(--border));
+
+        white-space: nowrap;
+
+        &:first-child {
+          border-left: none;
+          padding-left: 16px;
+        }
+
+        &:last-child {
+          border-right: none;
+          padding-right: 16px;
+        }
+      }
+    }
+  }
+
+  .tableBody {
+    .tableRow {
+      border-bottom: 1px solid hsl(var(--border));
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background: hsl(var(--accent-2));
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .tableCell {
+        padding: 12px;
+        font-size: 14px;
+        color: hsl(var(--foreground));
+        border-right: 1px solid hsl(var(--border));
+        border-bottom: none;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &:first-child {
+          padding-left: 16px;
+          font-weight: 500;
+        }
+
+        &:last-child {
+          padding-right: 16px;
+        }
+
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5) {
+          text-align: right;
+          font-variant-numeric: tabular-nums;
+          font-weight: 500;
+        }
+
+        &:nth-child(6) {
+          text-align: right;
+          font-variant-numeric: tabular-nums;
+          color: hsl(var(--muted-foreground));
+        }
+      }
+    }
+  }
+}
+
+.pagination {
+  position: sticky;
+  bottom: 16px;
+  width: fit-content;
+  margin: 0 auto;
+
+  padding: 16px 32px;
+  border-radius: 99999px;
+  overflow: clip;
+
+  z-index: 10;
+  background: hsl(var(--background) / 0.2);
+  backdrop-filter: blur(13px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  .paginationButton {
+    padding: 8px 16px;
+    border: 1px solid hsl(var(--border));
+    border-radius: 6px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover:not(:disabled) {
+      background: hsl(var(--accent));
+      border-color: hsl(var(--accent-6));
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      color: hsl(var(--muted-foreground));
+    }
+  }
+
+  .paginationInfo {
+    font-size: 14px;
+    color: hsl(var(--muted-foreground));
+    font-weight: 500;
+    min-width: 120px;
+    text-align: center;
+
+    strong {
+      color: hsl(var(--foreground));
+    }
+  }
+}
+
+.noDataMessage {
+  text-align: center;
+  padding: 48px 24px;
+  color: hsl(var(--muted-foreground));
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .bitcoinTable {
+    font-size: 12px;
+
+    .tableHead {
+      .tableRow {
+        .tableHeader {
+          padding: 12px 8px;
+          font-size: 12px;
+
+          &:first-child {
+            padding-left: 12px;
+          }
+
+          &:last-child {
+            padding-right: 12px;
+          }
+        }
+      }
+    }
+
+    .tableBody {
+      .tableRow {
+        .tableCell {
+          padding: 8px;
+          font-size: 12px;
+
+          &:first-child {
+            padding-left: 12px;
+          }
+
+          &:last-child {
+            padding-right: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  .tableNavigation {
+    gap: 12px;
+    margin-top: 16px;
+
+    .navButton {
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+
+    .pageInfo {
+      font-size: 13px;
+      min-width: 100px;
+    }
+  }
+}
