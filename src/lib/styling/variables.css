@@ -1,0 +1,109 @@
+:root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 12.5%;
+    --foreground-subtle: 0 0.4% 51.2%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 12.5%;
+    --popover: 0 7.7% 97.5%;
+    --popover-foreground: 0 0% 12.5%;
+    --primary: 32.9 93.2% 53.5%;
+    --primary-foreground: 20 60% 99%;
+    --secondary: 31.8 100% 96.7%;
+    --secondary-foreground: 29.5 52.4% 20.6%;
+    --muted: 0 7.7% 97.5%;
+    --muted-foreground: 0 0% 39.2%;
+    --accent: 32.8 100% 85.3%;
+    --accent-foreground: 29.5 52.4% 20.6%;
+    --destructive: 359.5 75.5% 71.2%;
+    --destructive-foreground: 0 0% 0%;
+    --border: 0 0% 80.8%;
+    --input: 0 0% 80.8%;
+    --ring: 34.9 100% 45.9%;
+
+
+    /* Accent Colors */
+    --accent-1: 20 60% 99%;
+    --accent-2: 31.8 100% 96.7%;
+    --accent-3: 34.3 100% 91.8%;
+    --accent-4: 32.8 100% 85.3%;
+    --accent-5: 32.1 100% 80.6%;
+    --accent-6: 29.7 100% 77.1%;
+    --accent-7: 28.8 83.7% 71.2%;
+    --accent-8: 29.2 74.5% 61.6%;
+    --accent-9: 32.9 93.2% 53.5%;
+    --accent-10: 34.9 100% 45.9%;
+    --accent-11: 31.5 100% 36.3%;
+    --accent-12: 29.5 52.4% 20.6%;
+    --accent-contrast: 0 0% 100%;
+
+    /* Gray Colors */
+    --gray-1: 0 20% 99%;
+    --gray-2: 0 7.7% 97.5%;
+    --gray-3: 0 6.7% 94.1%;
+    --gray-4: 0 2.1% 90.8%;
+    --gray-5: 0 3.3% 88.2%;
+    --gray-6: 0 1.3% 84.9%;
+    --gray-7: 0 0% 80.8%;
+    --gray-8: 0 0.7% 73.1%;
+    --gray-9: 0 0% 55.3%;
+    --gray-10: 0 0.4% 51.2%;
+    --gray-11: 0 0% 39.2%;
+    --gray-12: 0 0% 12.5%;
+    --gray-contrast: 0 0% 12.5%;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: 220 100% 0.6%;
+        --foreground: 0 0% 93.3%;
+        --foreground-subtle: 0 0.4% 46.1%;
+        --card: 220 100% 0.6%;
+        --card-foreground: 0 0% 93.3%;
+        --popover: 0 11.1% 1.8%;
+        --popover-foreground: 0 0% 93.3%;
+        --primary: 32.9 93.2% 53.5%;
+        --primary-foreground: 30 100% 0.4%;
+        --secondary: 17.1 100% 1.4%;
+        --secondary-foreground: 28.5 100% 88%;
+        --muted: 0 11.1% 1.8%;
+        --muted-foreground: 0 0.6% 69.2%;
+        --accent: 17.7 100% 8.6%;
+        --accent-foreground: 28.5 100% 88%;
+        --destructive: 359.5 75.5% 71.2%;
+        --destructive-foreground: 0 0% 0%;
+        --border: 0 0.9% 22.9%;
+        --input: 0 0.9% 22.9%;
+        --ring: 34.7 100% 46.1%;
+
+
+        /* Accent Colors */
+        --accent-1: 30 100% 0.4%;
+        --accent-2: 17.1 100% 1.4%;
+        --accent-3: 16.2 100% 5.1%;
+        --accent-4: 17.7 100% 8.6%;
+        --accent-5: 22.6 100% 12%;
+        --accent-6: 28.1 100% 15.9%;
+        --accent-7: 32 100% 21%;
+        --accent-8: 33.3 100% 28.2%;
+        --accent-9: 32.9 93.2% 53.5%;
+        --accent-10: 34.7 100% 46.1%;
+        --accent-11: 32.2 100% 59%;
+        --accent-12: 28.5 100% 88%;
+        --accent-contrast: 0 0% 100%;
+
+        /* Gray Colors */
+        --gray-1: 0 0% 0.4%;
+        --gray-2: 0 11.1% 1.8%;
+        --gray-3: 0 3.7% 5.3%;
+        --gray-4: 0 0% 8.6%;
+        --gray-5: 0 1.6% 12.4%;
+        --gray-6: 0 0% 16.9%;
+        --gray-7: 0 0.9% 22.9%;
+        --gray-8: 0 0.6% 33.1%;
+        --gray-9: 0 0.5% 39.4%;
+        --gray-10: 0 0.4% 46.1%;
+        --gray-11: 0 0.6% 69.2%;
+        --gray-12: 0 0% 93.3%;
+        --gray-contrast: 0 0% 93.3%;
+    }
+}
