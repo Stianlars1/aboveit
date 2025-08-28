@@ -1,11 +1,12 @@
 "use client";
 import { useBitcoinTableDetails } from "@/components/BitcoinTable/hooks/useBitcoinTableDetails";
-import { formatCurrency, formatVolume } from "@/lib/utils/formatters";
+import { BitcoinPriceDetails } from "@/types/bitcoin";
 import styles from "./BitcoinTable.module.css";
 import { DEFAULT_TABLE_ROW_SIZE } from "@/lib/utils/constants";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+
 gsap.registerPlugin(useGSAP);
 
 export interface BitcoinTableProps {
@@ -70,21 +71,11 @@ export const BitcoinTable = ({
               key={`${bitcoinPriceDetail.date}-${index}`}
             >
               <td className={styles.tableCell}>{bitcoinPriceDetail.date}</td>
-              <td className={styles.tableCell}>
-                {formatCurrency(bitcoinPriceDetail.open)}
-              </td>
-              <td className={styles.tableCell}>
-                {formatCurrency(bitcoinPriceDetail.high)}
-              </td>
-              <td className={styles.tableCell}>
-                {formatCurrency(bitcoinPriceDetail.low)}
-              </td>
-              <td className={styles.tableCell}>
-                {formatCurrency(bitcoinPriceDetail.close)}
-              </td>
-              <td className={styles.tableCell}>
-                {formatVolume(bitcoinPriceDetail.volume)}
-              </td>
+              <td className={styles.tableCell}>{bitcoinPriceDetail.open}</td>
+              <td className={styles.tableCell}>{bitcoinPriceDetail.high}</td>
+              <td className={styles.tableCell}>{bitcoinPriceDetail.low}</td>
+              <td className={styles.tableCell}>{bitcoinPriceDetail.close}</td>
+              <td className={styles.tableCell}>{bitcoinPriceDetail.volume}</td>
             </tr>
           ))}
         </tbody>

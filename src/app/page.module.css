@@ -9,18 +9,16 @@
   padding: 16px;
   gap: 32px;
   font-family: var(--font-geist-sans);
-}
 
-.header {
   .title {
     font-size: clamp(2rem, 4vw, 3.5rem);
     letter-spacing: -0.075em;
     font-weight: 800;
   }
-}
 
-.main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  .main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }

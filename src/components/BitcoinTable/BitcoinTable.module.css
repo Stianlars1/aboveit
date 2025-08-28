@@ -47,6 +47,11 @@
           padding-left: 16px;
         }
 
+        &:not(:first-child) {
+          text-align: right;
+          font-variant-numeric: tabular-nums;
+        }
+
         &:last-child {
           border-right: none;
           padding-right: 16px;

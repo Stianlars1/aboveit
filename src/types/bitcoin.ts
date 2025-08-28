@@ -1,5 +1,5 @@
 // Raw API response type
-interface BitcoinPriceDetailsApiResponse {
+export interface BitcoinPriceDetailsApiResponse {
   Response: string;
   Message: string;
   HasWarning: boolean;
@@ -24,11 +24,21 @@ interface BitcoinPriceDetailsApiResponse {
 }
 
 // Clean domain model
-type BitcoinPriceDetails = {
-  date: string; // formatDate(timestamp: number) -> string
+export type BitcoinPriceDetails = {
+  date: string;
   open: number;
   high: number;
   low: number;
   close: number;
   volume: number;
+};
+
+// Formatted data for display (with currency strings)
+export type FormattedBitcoinPriceDetails = {
+  date: string;
+  open: string;
+  high: string;
+  low: string;
+  close: string;
+  volume: string;
 };

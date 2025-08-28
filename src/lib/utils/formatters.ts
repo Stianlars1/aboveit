@@ -1,9 +1,9 @@
-export function formatCurrency(value: number): string {
+export function formatCurrency(value: number, fractions = 2): string {
   return new Intl.NumberFormat("nb-NO", {
     style: "currency",
     currency: "USD",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    minimumFractionDigits: fractions,
+    maximumFractionDigits: fractions,
   }).format(value);
 }
 
@@ -13,6 +13,13 @@ export function formatDate(timestamp: number): string {
     month: "short",
     day: "numeric",
   }).format(new Date(timestamp * 1000));
+}
+
+export function formatNumber(value: number, fractions = 2): string {
+  return new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: fractions,
+    maximumFractionDigits: fractions,
+  }).format(value);
 }
 
 export function formatVolume(volume: number): string {

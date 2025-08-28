@@ -2,6 +2,10 @@
 import { BITCOIN_PRICE_DETAILS_API_URL } from "@/lib/utils/urls";
 import { cache } from "react";
 import { formatDate } from "@/lib/utils/formatters";
+import {
+  BitcoinPriceDetails,
+  BitcoinPriceDetailsApiResponse,
+} from "@/types/bitcoin";
 
 export const fetchBitcoinPriceDetails = cache(
   async (): Promise<BitcoinPriceDetails[]> => {

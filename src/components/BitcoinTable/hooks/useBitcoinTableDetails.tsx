@@ -1,4 +1,10 @@
 import { useMemo, useState } from "react";
+import { useNative } from "@/hook/useNative";
+import {
+  BitcoinPriceDetails,
+  FormattedBitcoinPriceDetails,
+} from "@/types/bitcoin";
+import { formatCurrency } from "@/lib/utils/formatters";
 
 const optionalRowSizes = [10, 20, 50, 100];
 
@@ -9,6 +15,8 @@ export const useBitcoinTableDetails = (
   const [currentPage, setCurrentPage] = useState(0);
   const [tableRowSizeState, setTableRowSizeState] = useState(tableRowSize);
 
+  const isNative = useNative();
+
   const totalPages = useMemo(() => {
     return Math.ceil(bitcoinPriceDetails.length / tableRowSizeState);
   }, [bitcoinPriceDetails.length, tableRowSizeState]);
@@ -16,7 +24,12 @@ export const useBitcoinTableDetails = (
   const startIndex = currentPage * tableRowSizeState;
   const endIndex = startIndex + tableRowSizeState;
 
-  const paginatedData = bitcoinPriceDetails.slice(startIndex, endIndex);
+  const formattedData = useMemo<FormattedBitcoinPriceDetails[]>(
+    () => getFinalBitcoinData(bitcoinPriceDetails, isNative),
+    [bitcoinPriceDetails, isNative],
+  );
+
+  const paginatedData = formattedData.slice(startIndex, endIndex);
 
   const handleRowSizeChange = (newSize: number) => {
     if (optionalRowSizes.includes(newSize)) {
@@ -52,4 +65,18 @@ export const useBitcoinTableDetails = (
     endIndex: Math.min(endIndex, bitcoinPriceDetails.length),
     RowSizeSelector,
   };
+};
+
+const getFinalBitcoinData = (
+  data: BitcoinPriceDetails[],
+  isNative: boolean,
+): FormattedBitcoinPriceDetails[] => {
+  return data.map((item) => ({
+    date: item.date,
+    open: formatCurrency(item.open, isNative ? 0 : 2),
+    high: formatCurrency(item.high, isNative ? 0 : 2),
+    low: formatCurrency(item.low, isNative ? 0 : 2),
+    close: formatCurrency(item.close, isNative ? 0 : 2),
+    volume: formatCurrency(item.volume, isNative ? 0 : 2),
+  }));
 };

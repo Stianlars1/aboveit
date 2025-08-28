@@ -16,9 +16,7 @@ export default async function Home() {
 
   return (
     <div className={styles.page}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>Bitcoin siste 100 dager</h1>
-      </header>
+      <h1 className={styles.title}>Bitcoin siste 100 dager</h1>
 
       <main className={styles.main}>
         <BitcoinTable bitcoinPriceDetails={bitcoinPriceDetails} />
