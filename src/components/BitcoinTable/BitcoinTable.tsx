@@ -2,6 +2,7 @@
 import { useBitcoinTableDetails } from "@/components/BitcoinTable/hooks/useBitcoinTableDetails";
 import { formatCurrency, formatVolume } from "@/lib/utils/formatters";
 import styles from "./BitcoinTable.module.css";
+
 export interface BitcoinTableProps {
   bitcoinPriceDetails: BitcoinPriceDetails[];
   tableRowSize?: number;
@@ -13,8 +14,13 @@ export const BitcoinTable = ({
   bitcoinPriceDetails,
   tableRowSize = DEFAULT_TABLE_ROW_SIZE,
 }: BitcoinTableProps) => {
-  const { paginatedData, currentPage, setCurrentPage, totalPages } =
-    useBitcoinTableDetails(bitcoinPriceDetails, tableRowSize);
+  const {
+    paginatedData,
+    currentPage,
+    setCurrentPage,
+    totalPages,
+    RowSizeSelector,
+  } = useBitcoinTableDetails(bitcoinPriceDetails, tableRowSize);
 
   if (bitcoinPriceDetails.length === 0) {
     return <h2>Ingen data tilgjengelig.</h2>;
@@ -87,6 +93,8 @@ export const BitcoinTable = ({
         >
           Neste
         </button>
+
+        <RowSizeSelector />
       </nav>
     </section>
   );
