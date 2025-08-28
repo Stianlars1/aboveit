@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Aboveit",
-  description: "Bitcoin We Trust - Aboveit"
+  description: "Bitcoin We Trust - Aboveit",
 };
 
 export default function RootLayout({

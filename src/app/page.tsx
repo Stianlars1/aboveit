@@ -3,7 +3,17 @@ import { fetchBitcoinPriceDetails } from "@/app/actions/fetchBitcoinPriceDetails
 import { BitcoinTable } from "@/components/BitcoinTable/BitcoinTable";
 
 export default async function Home() {
+  // Tar utgangspunkt i at fetchBitcoinPriceDetails ikke kaster feil
   const bitcoinPriceDetails = await fetchBitcoinPriceDetails();
+
+  // pseudo code for simulating an error
+  // const {isError, bitcoinPriceDetails } = await fetchBitcoinPriceDetails();
+  // if (isError) {
+  //   return (
+  //     <ContextMessage type="error" message="Noe gikk galt ved henting av data." />
+  //   )
+  // }
+
   return (
     <div className={styles.page}>
       <header className={styles.header}>
