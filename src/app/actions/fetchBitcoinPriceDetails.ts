@@ -1,3 +1,4 @@
+/*
 "use server";
 import { BITCOIN_PRICE_DETAILS_API_URL } from "@/lib/utils/urls";
 import { cache } from "react";
@@ -7,14 +8,12 @@ import {
   BitcoinPriceDetailsApiResponse,
 } from "@/types/bitcoin";
 
-export const fetchBitcoinPriceDetails = cache(
-  async (): Promise<BitcoinPriceDetails[]> => {
+export const fetchBitcoinPriceDetails = async (): Promise<BitcoinPriceDetails[]> => {
     const rawResponse = await fetch(BITCOIN_PRICE_DETAILS_API_URL, {
       cache: "force-cache",
     });
 
     if (!rawResponse.ok) {
-      throw new Error("Failed to fetch Bitcoin price details");
     }
 
     const parsedData: BitcoinPriceDetailsApiResponse = await rawResponse.json();
@@ -39,3 +38,4 @@ const mapBitcoinPriceData = (
     volume: item.volumefrom,
   }));
 };
+*/
